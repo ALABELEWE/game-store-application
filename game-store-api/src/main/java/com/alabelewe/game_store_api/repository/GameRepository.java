@@ -3,6 +3,8 @@ package com.alabelewe.game_store_api.repository;
 
 import com.alabelewe.game_store_api.model.Category;
 import com.alabelewe.game_store_api.model.Game;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +20,8 @@ public interface GameRepository extends JpaRepository<Game, String> {
     List<Game> findAllByCategoryId(String categoryId);
 
     List<Game> findAllByCategoryName(String categoryName);
+
+    Page<Game> findAllByCategoryName(String categoryName, Pageable pageable);
 
 //
 //    @Query("""

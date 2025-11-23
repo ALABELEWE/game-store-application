@@ -1,0 +1,20 @@
+package com.alabelewe.game_store_api.dto;
+
+
+import lombok.*;
+
+import java.util.List;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class PageResponse<T>{
+
+    private List<T> content;
+    private int totalElements;
+    private int totalPages;
+    private boolean isLast;
+    private boolean isFirst;
+}
