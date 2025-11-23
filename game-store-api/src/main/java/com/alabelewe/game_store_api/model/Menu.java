@@ -3,9 +3,9 @@ package com.alabelewe.game_store_api.model;
 
 import com.alabelewe.game_store_api.model.common.BaseEntity;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,14 +18,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Wishlist extends BaseEntity<String> {
-    private String name;
+public class Menu extends BaseEntity<String> {
+    private String label;
 
-    @OneToOne
-    private User user;
+    @ManyToOne
+    @JoinColumn("parent_id")
+    private Menu parent;
 
-    @ManyToMany(mappedBy = "wishlists", fetch = FetchType.EAGER)
-    private List<Game> games;
-
-
+    @OneToMany(mappedBy = "parent")
+    private List<Menu> submenus;
 }

@@ -3,7 +3,7 @@ spring:
     name: game-store-api
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/game-store-app-db
+    url: jdbc:postgresql://localhost:5432/game-store-app
     username: postgres
     password: Omotosho3664!
 
